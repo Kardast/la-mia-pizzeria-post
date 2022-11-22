@@ -8,9 +8,16 @@ namespace la_mia_pizzeria_static.Validator
         {
             string fieldValue = (string)value;
 
-            if (fieldValue == null || !fieldValue.Trim().Contains(' '))
+            if (fieldValue == null)
             {
-                return new ValidationResult("Il campo deve contenere almeno due parole");
+                return new ValidationResult("Il campo deve contenere almeno 5 parole");
+            }
+
+            string[] arrSpaces = fieldValue.Split(' ');
+
+            if (arrSpaces.Length < 5)
+            {
+                return new ValidationResult("Il campo deve contenere almeno 5 parole");
             }
 
             return ValidationResult.Success;

@@ -18,6 +18,7 @@ namespace la_mia_pizzeria_static.Models
         [Required(ErrorMessage = "Il campo è obbligatorio")]
         [StringLength(100, ErrorMessage = "La descrizione non può essere più lunga di 500 caratteri")]
         [Column(TypeName = "text")]
+        [FiveWordsAttribute]
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Il campo è obbligatorio")]
